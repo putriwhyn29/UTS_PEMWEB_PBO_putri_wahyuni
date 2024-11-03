@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Isi Data Diri</title>
+    <style>
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Isi Data Diri</h2>
+        <form id="userInfoForm">
+            <label for="fullName">Nama Lengkap:</label>
+            <input type="text" id="fullName" required>
+
+            <label for="idNumber">Nomor Identitas (KTP/SIM):</label>
+            <input type="text" id="idNumber" required>
+
+            <label for="phoneNumber">Nomor Telepon:</label>
+            <input type="tel" id="phoneNumber" required>
+
+            <button type="button" onclick="confirmBooking()">Lanjutkan</button>
+        </form>
+    </div>
+
+    <script>
+        function confirmBooking() {
+            const fullName = document.getElementById('fullName').value;
+            const idNumber = document.getElementById('idNumber').value;
+            const phoneNumber = document.getElementById('phoneNumber').value;
+
+            if (fullName && idNumber && phoneNumber) {
+                const bookingInfo = { fullName, idNumber, phoneNumber };
+                localStorage.setItem('bookingInfo', JSON.stringify(bookingInfo));
+                window.location.href = '/tiketku'; 
+            } else {
+                alert('Silakan lengkapi semua data diri.');
+            }
+        }
+    </script>
+</body>
+</html>

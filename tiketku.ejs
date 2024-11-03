@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pembelian Tiket Kereta</title>
+    <style>
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="bookingSection">
+            <h2>Pesan Tiket Kereta</h2>
+            <form id="ticketForm">
+            </form>
+        </div>
+
+        <div id="userInfoSection" class="hidden">
+            <h2>Isi Data Diri</h2>
+            <form id="userInfoForm">
+            </form>
+        </div>
+
+        <div id="ticketListSection" class="hidden">
+            <h2>Daftar Tiket Dipesan</h2>
+            <table id="ticketTable">
+                <thead>
+                    <tr>
+                        <th>Keberangkatan</th>
+                        <th>Tujuan</th>
+                        <th>Tanggal</th>
+                        <th>Penumpang</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+
+            <div class="btn-container">
+                <button onclick="clearTickets()">Hapus Semua Tiket</button>
+                <button onclick="goBackToBooking()">Pesan Tiket Baru</button>
+                <button class="logout-btn" onclick="logout()">Logout</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        function logout() {
+            alert('Anda akan logout.');
+            window.location.href = '/logout'; 
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pembelian Tiket Kereta</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #4b79a1, #283e51);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+        }
+
+        h2 {
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-size: 14px;
+            color: #666;
+            margin-top: 15px;
+            margin-bottom: 5px;
+            text-align: left;
+        }
+
+        select, input[type="date"], input[type="number"] {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 15px;
+            background-color: #4b79a1;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #3a5976;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Pesan Tiket Kereta</h2>
+        <form id="ticketForm">
+            <label for="departureStation">Stasiun Keberangkatan:</label>
+            <select id="departureStation" required>
+                <option value="" disabled selected>Pilih stasiun keberangkatan</option>
+                <option value="Jakarta">Jakarta</option>
+                <option value="Bandung">Bandung</option>
+                <option value="Surabaya">Surabaya</option>
+                <option value="Yogyakarta">Yogyakarta</option>
+            </select>
+
+            <label for="arrivalStation">Stasiun Tujuan:</label>
+            <select id="arrivalStation" required>
+                <option value="" disabled selected>Pilih stasiun tujuan</option>
+                <option value="Jakarta">Jakarta</option>
+                <option value="Bandung">Bandung</option>
+                <option value="Surabaya">Surabaya</option>
+                <option value="Yogyakarta">Yogyakarta</option>
+            </select>
+
+            <label for="departureDate">Tanggal Keberangkatan:</label>
+            <input type="date" id="departureDate" required>
+
+            <label for="passengerCount">Jumlah Penumpang:</label>
+            <input type="number" id="passengerCount" min="1" max="10" value="1" required>
+
+            <button type="button" onclick="proceedToUserInfo()">Pesan Tiket</button>
+        </form>
+    </div>
+
+    <script>
+        let bookingInfo = {};
+
+        function proceedToUserInfo() {
+            const departureStation = document.getElementById('departureStation').value;
+            const arrivalStation = document.getElementById('arrivalStation').value;
+            const departureDate = document.getElementById('departureDate').value;
+            const passengerCount = document.getElementById('passengerCount').value;
+
+            if (departureStation && arrivalStation && departureDate && passengerCount) {
+                bookingInfo = { departureStation, arrivalStation, departureDate, passengerCount };
+                window.location.href = '/datadiri'; 
+            } else {
+                alert('Silakan lengkapi semua data.');
+            }
+        }
+    </script>
+</body>
+</html>
